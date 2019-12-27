@@ -5,9 +5,10 @@
 [![release](https://img.shields.io/badge/release-v1.0--beta-blue)](https://github.com/lwzSoviet/NoXss/releases)
 [![license](https://img.shields.io/github/license/lwzSoviet/NoXss)](https://github.com/lwzSoviet/NoXss/blob/master/LICENSE)
 
-NoXss is a cross-site script vulnerability scanner. It's very fast and suitable for big traffic data, and support reflected xss and dom-based xss.It can scan a single url or many urls from text file,also support to scan traffic from burpsuite.It has found some xss vulnerabilities in Bug Bounty program.
+NoXss is a cross-site script vulnerability scanner. It's very fast and suitable for millions of urls, and support reflected xss and dom-based xss.It has found some xss vulnerabilities in Bug Bounty program.
 # Features
-+ Payloads based on injection postion(not fuzz,more accurate,faster)
++ Fast and suitable for millions of urls
++ Only use 8 Payloads based on injection postion now(not fuzz,more accurate,faster)
 + Multi-process
 + Async request(use gevent)
 + Support Dom-based xss(use chrome or phantomjs) and reflected xss
@@ -89,7 +90,7 @@ NoXss will use these middle files to rescan:
 `python start.py --id taskid --save`
 # How does NoXss work?
 ### Payloads
-NoXss use only 5 payloads for scanning.These payloads are based on param's reflected position.Fewer payloads make it faster than fuzzing.
+NoXss use only 8 payloads for scanning.These payloads are based on param's reflected position.Fewer payloads make it faster than fuzzing.
 ### Async&multi-process
 NoXss is highly concurrent for using coroutine.
 ### Support dom-based xss
@@ -102,7 +103,7 @@ Some xss is difficult to scan.NoXss will save some files in traffic/ for analysi
 + *.error(some error happened such as timeout,connection reset,etc.)
 + *.multipart(when request is multupart-formed,not easy to scan)
 # Example
-As you see in [Screenshot](https://github.com/lwzSoviet/NoXss#screenshot),the poc is `"http://dgwestore.nestlechinese.com/weixin/asset/Show.aspx?openid=abcdef&id=xssjs%22%3B"`.That means use the payload `"xssjs%22%3B"` in param "id":  
+As you see in [Screenshot](https://github.com/lwzSoviet/NoXss#screenshot),the poc is `https://716838.com/?proxyAccount=xssjs%22%3B&shareName=duhxams`.That means use the payload `xssjs%22%3B` in param "proxyAccount":  
 ![poc](https://github.com/lwzSoviet/download/blob/master/images/poc.png)  
-Then you can end the double qoutes use payload `xssjs";alert(1);//`.The final exploit is `http://dgwestore.nestlechinese.com/weixin/asset/Show.aspx?openid=abcdef&id=xssjs";alert(1)//`:  
-![poc](https://github.com/lwzSoviet/download/blob/master/images/result.png) 
+Then you can end the double qoutes use payload `xssjs";alert(1);//`.The final exploit is `https://716838.com/?proxyAccount=xssjs";alert(1);//&shareName=duhxams`:  
+![poc](https://github.com/lwzSoviet/download/blob/master/images/result.png)  
