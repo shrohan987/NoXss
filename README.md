@@ -5,13 +5,12 @@
 [![release](https://img.shields.io/badge/release-v1.0--beta-blue)](https://github.com/lwzSoviet/NoXss/releases)
 [![license](https://img.shields.io/github/license/lwzSoviet/NoXss)](https://github.com/lwzSoviet/NoXss/blob/master/LICENSE)
 
-NoXss is a cross-site script vulnerability scanner. It's very fast and suitable for millions of urls, and support reflected xss and dom-based xss.It has found some xss vulnerabilities in Bug Bounty program.
+NoXss is a cross-site script vulnerability scanner(include reflected xss and dom-based xss),very fast and suitable for millions of urls.It's helpful if you have many urls to test.
 # Features
 + Fast and suitable for millions of urls
++ Support Dom-based xss(use Chrome or Phantomjs) and reflected xss
 + Only use 8 Payloads based on injection postion now(not fuzz,more accurate,faster)
-+ Multi-process
-+ Async request(use gevent)
-+ Support Dom-based xss(use chrome or phantomjs) and reflected xss
++ Async request(use gevent) and Multi-processed
 + Support single url,file and traffic from Burpsuite
 + Traffic filter based on interface
 + Support speicial headers(referer,cookie,customized token,e.g.)
@@ -42,8 +41,6 @@ NoXss is a cross-site script vulnerability scanner. It's very fast and suitable 
 # Screenshot
 ### NoXss:  
 ![s1](https://github.com/lwzSoviet/download/blob/master/images/s1.png)  
-### Use --browser:   
-![s2](https://github.com/lwzSoviet/download/blob/master/images/s2.png)
 # Environment
 Linux  
 Python2.7  
@@ -103,7 +100,7 @@ Some xss is difficult to scan.NoXss will save some files in traffic/ for analysi
 + *.error(some error happened such as timeout,connection reset,etc.)
 + *.multipart(when request is multupart-formed,not easy to scan)
 # Example
-As you see in [Screenshot](https://github.com/lwzSoviet/NoXss#screenshot),the poc is `https://716838.com/?proxyAccount=xssjs%22%3B&shareName=duhxams`.That means use the payload `xssjs%22%3B` in param "proxyAccount":  
+As you see in [Screenshot](https://github.com/lwzSoviet/NoXss#screenshot),the poc is `https://716838.com/?proxyAccount=xssjs%22%3B&shareName=duhxams`,That means use the payload `xssjs%22%3B` in param "proxyAccount":  
 ![poc](https://github.com/lwzSoviet/download/blob/master/images/poc.png)  
 Then you can end the double qoutes use payload `xssjs";alert(1);//`.The final exploit is:  
 `https://716838.com/?proxyAccount=xssjs";alert(1);//&shareName=duhxams`  
