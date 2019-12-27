@@ -105,5 +105,5 @@ Some xss is difficult to scan.NoXss will save some files in traffic/ for analysi
 # Example
 As you see in [Screenshot](https://github.com/lwzSoviet/NoXss#screenshot),the poc is `https://716838.com/?proxyAccount=xssjs%22%3B&shareName=duhxams`.That means use the payload `xssjs%22%3B` in param "proxyAccount":  
 ![poc](https://github.com/lwzSoviet/download/blob/master/images/poc.png)  
-Then you can end the double qoutes use payload `xssjs";alert(1);//`.The final exploit is `https://716838.com/?proxyAccount=xssjs";alert(1);//&shareName=duhxams`:  
-![poc](https://github.com/lwzSoviet/download/blob/master/images/result.png)  
+Then you can end the double qoutes use payload `xssjs";alert(1);//`.The final exploit is:  
+`https://716838.com/?proxyAccount=xssjs";alert(1);//&shareName=duhxams`  
