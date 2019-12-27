@@ -5,9 +5,9 @@
 [![release](https://img.shields.io/badge/release-v1.0--beta-blue)](https://github.com/lwzSoviet/NoXss/releases)
 [![license](https://img.shields.io/github/license/lwzSoviet/NoXss)](https://github.com/lwzSoviet/NoXss/blob/master/LICENSE)
 
-NoXss is a cross-site script vulnerability scanner(include reflected xss and dom-based xss),very fast and suitable for millions of urls.It's helpful if you have many urls to test.
+NoXss is a cross-site script vulnerability scanner supported reflected xss and dom-based xss. It's very fast and suitable for testing millions of urls.
 # Features
-+ Fast and suitable for millions of urls
++ Fast and suitable for testing millions of urls
 + Support Dom-based xss(use Chrome or Phantomjs) and reflected xss
 + Only use 8 Payloads based on injection postion now(not fuzz,more accurate,faster)
 + Async request(use gevent) and Multi-processed
@@ -38,8 +38,7 @@ NoXss is a cross-site script vulnerability scanner(include reflected xss and dom
 ├── model.py
 └── test.py
 ```
-# Screenshot
-### NoXss:  
+# Screenshot 
 ![s1](https://github.com/lwzSoviet/download/blob/master/images/s1.png)  
 # Environment
 Linux  
